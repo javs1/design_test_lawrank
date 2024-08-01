@@ -4,7 +4,7 @@ body, html {
     width: 100%;
     height: 100%;
     font-family: "Noto Sans", sans-serif;
-    overflow-x: hidden;
+
 }
 
 .background {
@@ -26,7 +26,7 @@ body, html {
     flex-direction: column;
     color: white;
     padding-top: 20px;
-    position:absolute;
+    position:static;
     top: 0px;
 }
 
@@ -115,23 +115,22 @@ a{
     position: relative;
     width: 80%;
     max-width: 1200px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
   
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    overflow-x: hidden;
 }
   
 .card {
     background-color: white;
     border: 1px solid #ccc;
     margin: 10px;
-    padding: 20px;
-    min-width: 300px;
-    max-width: 300px;
+    padding: 60px 100px;
+    min-width: 700px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
 }
   
 .carousel-button {
@@ -163,11 +162,11 @@ a{
 }
 
 .case-results.main-container{
-    background-color: #020305;
+    background-color: black;
 }
 
 .case-results.second-container{
-    padding: 100px 0 0 5%;
+    padding: 100px 0 0 10%;
 }
 
 h3.case-results{
@@ -182,10 +181,51 @@ h3.case-results{
 
 
 .case-results.img-container{
-    background-image: linear-gradient(#020305 10%,#02030500 20%), url("./img/sergey-zolkin-_UeY8aTI6d0-unsplash\ 1.png");
-    width: 100%;
-    height: 400px;
+    background: linear-gradient(black 10%,rgba(0, 0, 0, 0) 20%), url("./img/sergey-zolkin-_UeY8aTI6d0-unsplash\ 1.png") no-repeat center center;
+    min-width: 100%;
+    min-height: 100vh;
+    height: 850px;
     background-size: cover;
-    color: white;
-    padding: 20px;
+}
+
+.card-red-text{
+    color: #D85172;
+    font-size: 64px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.card-titles{
+    font-family: "Noto Serif", serif;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card-text-content{
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 2.2;
+    margin: 20px 0 45px 0;
+}
+
+.case-results-title{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5% 50px 0
+}
+
+.case-results.top{
+    margin-left: 10px;
+}
+
+.case-results-button{
+    background-color: black;
+    border: solid, #D85172, 1px;
+    border-radius: 4px;
+    color: #ccc;
+    font-size: 16px;
+    padding: 15px 20px;
+    height:min-content;
 }
