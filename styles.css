@@ -229,3 +229,31 @@ h3.case-results{
     padding: 15px 20px;
     height:min-content;
 }
+
+.case-types{
+    background: url("./img/BG.png") top no-repeat;
+    background-size: 97% auto;   
+    background-color: #171B24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 150px 0 100px 0;
+    color: #fff;
+}
+
+.grid-container {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 20%;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.grid-item img {
+    width: 100px;
+    height: 100px;
+}
