@@ -23,4 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const newTransformValue = -currentIndex * (cardWidth + 20); // 20 es el margen entre cartas
       carousel.style.transform = `translateX(${newTransformValue}px)`;
     }
+
+    const hamburger = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.navbar-left');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
   });
