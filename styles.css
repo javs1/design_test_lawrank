@@ -92,7 +92,6 @@ body, html {
 }
 
 .content {
-    z-index: 1;
     padding: 300px 0 100px 0;
 }
 
@@ -132,6 +131,9 @@ body, html {
     display: none;
 }
 
+#menuToggle{
+    display: none;
+}
 
 @media (max-width: 810px) {
     .background {
@@ -145,6 +147,10 @@ body, html {
         margin: 0;
         text-shadow:none;
     }
+
+    .navbar {
+        position: relative !important;
+    }
     
     .presentation.subtitle{
         font-size: 25px;
@@ -154,7 +160,7 @@ body, html {
     }
 
     .content {
-        padding: 0px 0 0px 0;
+        padding: 50px 0;
     }
 
     .cta-button{
@@ -189,6 +195,11 @@ body, html {
         font-size: 18px;
     }
 
+    .cta-button{
+        padding: 16px 40px;
+        margin-bottom: 50px;
+    }
+
     .contact-call{
         display: inline;
         color: black;
@@ -219,6 +230,386 @@ body, html {
     .mobile-menu {
         display: flex;
     }
+
+    #menuToggle
+    {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+    }
+
+    #menuToggle input
+    {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    
+    cursor: pointer;
+    
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    
+    -webkit-touch-callout: none;
+    }
+
+    /*
+    * Just a quick hamburger
+    */
+    #menuToggle span
+    {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: white;
+    border-radius: 3px;
+    
+    z-index: 1;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child
+    {
+    transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2)
+    {
+    transform-origin: 0% 100%;
+    }
+
+    /* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+    #menuToggle input:checked ~ span
+    {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+    }
+
+    /*
+    * But let's hide the middle one.
+    */
+    #menuToggle input:checked ~ span:nth-last-child(3)
+    {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /*
+    * Ohyeah and the last one should go the other direction
+    */
+    #menuToggle input:checked ~ span:nth-last-child(2)
+    {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /*
+    * Make this absolute positioned
+    * at the top left of the screen
+    */
+    #menu
+    {
+    position: absolute;
+    width: 100vw;
+    margin: -100px 0 0 0;
+    padding: 50px;
+
+    right: -100px;
+    
+    background: black;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    #menu li
+    {
+    padding: 10px 0;
+    font-size: 22px;
+    }
+
+    /*
+    * And let's fade it in from the left
+    */
+    #menuToggle input:checked ~ ul
+    {
+    transform: none;
+    opacity: 1;
+    }
+
+    .case-results-title{
+        display: block !important;
+    }
+
+    .we-get-results{
+        margin-bottom: 20px !important;
+        width: 75%;
+    }
+
+    .case-results{
+        font-size: 18px;
+    }
+
+    .card {
+        background-color: white;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 70px 55px !important;
+        min-width: 500px !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .case-results.img-container{
+        height: auto !important;
+    }
+
+
+    .grid-container {
+        width: 80% !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 80px 20%;
+    }
+
+    .grid-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .last{
+        grid-column: span 2;
+        justify-self: center;
+    }
+
+    .case-types{
+        background: #171b24 !important;;
+    }
+
+    .why-choose-us-container {
+        padding: 50px 35px !important;
+        background: linear-gradient(white 50%,#EAEAEA 50%);
+    }
+
+    .features{
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .feature-item.four::before {
+        border-left: 1px solid rgb(255, 255, 255) !important;
+    }
+
+    .feature-item.four::after {
+        border-bottom: 1px solid rgb(255, 255, 255) !important;
+    }
+
+    .feature-item.three::before {
+        border-left: none ;
+    }
+
+    .feature-item.five::before {
+        border-left: none ;
+    }
+
+    .why-choose-us-title{
+        font-size: 60px !important;
+    }
+
+    .feature-item h2 {
+        font-size: 24px !important; 
+    }
+
+    .feature-item p {
+        font-size: 18px !important;
+        font-weight: 300 !important;
+    }
+
+}
+
+@media (max-width: 375px){
+        
+    .presentation.subtitle{
+        font-size: 18px !important;
+        font-weight: 300 !important;
+    }
+
+    .title{
+        font-size: 55px !important;
+        letter-spacing: 5px !important;
+        margin: 10px 0 !important;
+    }
+
+    .cta-button{
+        margin-top: 50px !important;
+    }
+
+    .cta-button a{
+        font-size: 18px;
+        font-weight: 600 !important;
+    }
+
+    .contact-call{
+        display: none;
+    }
+
+    .we-get-results{
+        width: 90%;
+    }
+    
+    .case-results{
+        font-size: 12px !important;
+        margin-bottom: 20px;
+    }
+
+    .we-get-results{
+        font-size: 45px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .card {
+        padding: 40px 30px !important;
+        min-width: 250px !important;
+    }
+
+    .card-text-content{
+        font-size: 16px !important;
+    }
+
+    .card-titles{
+        font-size: 14px !important;
+        letter-spacing: 8px;
+    }
+
+    .card-red-text{
+        margin-top: 20px !important;
+        font-size: 32px !important;
+    }
+
+    .case-results.img-container{
+        margin-bottom: 0 !important;
+    }
+
+    .case-results.main-container{
+        margin-bottom: 0 !important;
+    }
+
+    .case-results.img-container{
+        min-height: 250px !important;
+    }
+
+    .grid-container {
+        display: grid;
+    }
+
+    .grid-item{
+        grid-column: span 2;
+        justify-self: center;
+    }
+    
+    .case-types{
+        background: url("./img/BG.png") top no-repeat !important; 
+        background-color: #171B24 !important;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    #showMore{
+        display: block ;
+        background-color: transparent;
+        border: solid 1px white;
+        padding: 20px 80px;
+        color: white;
+        font-size: 12px;
+        font-family: "Manrope", sans-serif;
+        letter-spacing: 3px;
+    }
+
+    #showMore{
+        display: block !important;
+        background-color: transparent;
+        border: solid 1px white;
+        padding: 20px 80px;
+        color: white;
+        font-size: 12px;
+        font-family: "Manrope", sans-serif;
+        letter-spacing: 3px;
+    }
+
+    .why-choose-us-container {
+        padding: 50px 35px !important;
+        background: linear-gradient(white 50%,#EAEAEA 50%);
+    }
+
+    .features{
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    .features{
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    .why-choose-us-title{
+        font-size: 40px !important;
+    }
+
+    .feature-item{
+        padding: 40px 35px !important;
+    }
+
+    .feature-item.feature-item.two::before{
+        border-left: none !important;
+    }
+
+    .feature-item.feature-item.four::before{
+        border-left: none !important;
+    }
+
+    .feature-item.feature-item.five::before{
+        border-left: none !important;
+    }
+
+    .feature-item.feature-item.five::after{
+        border-bottom: 1px solid rgb(255, 255, 255) !important;
+    }
+
+    .feature-item h2 {
+        font-size: 24px !important; 
+    }
+
+    .feature-item p {
+        font-size: 18 !important;
+    }
+
+    
+}
+
+#showMore{
+    display: none;
 }
 
 .carousel-container {
@@ -249,7 +640,6 @@ body, html {
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1000;
 }
   
 .carousel-button.prev {
@@ -284,14 +674,13 @@ h3.case-results{
     font-weight: bold;
     font-size: 20px;
     color: white;
-    z-index: 10;
 }
 
 
 .case-results.img-container{
     background: linear-gradient(black 10%,rgba(0, 0, 0, 0) 20%), url("./img/sergey-zolkin-_UeY8aTI6d0-unsplash\ 1.png") no-repeat center center;
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 450px;
     height: 850px;
     background-size: cover;
 }
@@ -413,6 +802,8 @@ h3.case-results{
       transform: translateX(-50%);
 }
 
+
+
 .feature-item::after {
     content: '';
     position: absolute;
@@ -422,7 +813,27 @@ h3.case-results{
     height: 0;
     border-bottom: 1px solid rgb(255, 255, 255);
     transform: translateY(50%);
-  }
+}
+
+.feature-item.one::before{
+    border-left: none;
+}
+
+.feature-item.four::before{
+    border-left: none;
+}
+
+.feature-item.four::after{
+    border-bottom: none;
+}
+
+.feature-item.five::after{
+    border-bottom: none;
+}
+
+.feature-item.six::after{
+    border-bottom: none;
+}
 
 .feature-item h2 {
     font-family: "Roboto Slab", serif;

@@ -24,10 +24,26 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.style.transform = `translateX(${newTransformValue}px)`;
     }
 
-    const hamburger = document.querySelector('.mobile-menu');
-    const navLinks = document.querySelector('.navbar-left');
+    document.getElementById('showMore').addEventListener('click', function() {
+      const hiddenItems = document.querySelectorAll('.hidden');
+      hiddenItems.forEach(item => {
+          item.classList.remove('hidden');
+      });
+      this.style = ("color: transparent; border:transparent; margin: -50px;")
+    });
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+    let lastScrollTop = 0;
+    const menu = document.querySelector('.ham_menu');
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            menu.style.top = '-50px'; // Hide the menu (assuming the menu height is 50px)
+        } else {
+            // Scrolling up
+            menu.style.top = '0';
+        }
+        lastScrollTop = scrollTop;
     });
   });
